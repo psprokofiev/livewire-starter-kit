@@ -3,4 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
-Route::get('/', Controllers\HomeController::class)->name('home.index');
+Route::middleware('auth.basic')->group(function () {
+    Route::get('/', Controllers\HomeController::class)->name('home.index');
+});
